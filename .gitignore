@@ -1,0 +1,4 @@
+images/
+_pycache_/
+*.xml
+*.pyc

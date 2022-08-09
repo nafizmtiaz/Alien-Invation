@@ -9,7 +9,7 @@ class Ship:
         self.screen_rect = Bi_game.screen.get_rect()
         
         #Load the ship image
-        self.image = pygame.image.load('images/ship.bmp')
+        self.image = pygame.image.load('images/rocket.png')
         self.rect = self.image.get_rect()
         
         #possitioning the ship in the mid-center

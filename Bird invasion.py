@@ -11,6 +11,7 @@ class AlienInvader:
     def __init__(self):
         pygame.init()
         self.settings = Settings()
+         
         
         self.screen = pygame.display.set_mode((0 , 0), pygame.FULLSCREEN)
         self.settings.screen_width, self.settings.screen_height

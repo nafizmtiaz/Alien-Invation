@@ -4,7 +4,7 @@ class Settings:
     def __init__(self):
         self.screen_width = 1020
         self.screen_height = 620
-        self.bg_color = (230, 230,230 )
+        self.bg_color = (255, 255,240)
         self.ship_speed = 1.5
         
        # creating  Bullets
