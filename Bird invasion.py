@@ -3,6 +3,7 @@ import pygame
 from settings import Settings
 from ship import Ship
 from Bullets import Bullet
+from Aliens import Aliens
 
 class AlienInvader:
 
@@ -11,15 +12,19 @@ class AlienInvader:
         pygame.init()
         self.settings = Settings()
         
-        self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
-        self.settings.screen_width = self.screen.get_rect().width
-        self.settings.screen_height = self.screen.get_rect().height
+        self.screen = pygame.display.set_mode((0 , 0), pygame.FULLSCREEN)
+        self.settings.screen_width, self.settings.screen_height
         pygame.display.set_caption('Bird Invasion')
         
         
         self.ship = Ship(self)
         #storing all bullets
         self.bullets = pygame.sprite.Group()
+        #creating Aliens
+        self.aliens = pygame.sprite.Group()
+        
+        # refactoring the Alien properties
+        self._alien_armies()
         
         
     def run_game(self):
@@ -79,6 +84,10 @@ class AlienInvader:
          elif event.key == pygame.K_DOWN:
              self.ship.moving_down = False
              
+    def _alien_armies(self):
+        alien = Aliens(self) # making an alien!
+        self.aliens.add(alien)
+             
     def _fire_bullet(self):
         # creating bullets & adding it to the group.
         # limiting the amount of bullet player can shoot
@@ -91,7 +100,10 @@ class AlienInvader:
         self.ship.blitme()
         for bullet in self.bullets.sprites():
             bullet.design_bullet()
+        self.aliens.draw(self.screen)
+        
         pygame.display.flip()
+        
         
 if __name__ == '__main__':
     Bi = AlienInvader()
