@@ -6,7 +6,7 @@ class Aliens(Sprite):
         super().__init__()
         self.screen = Bi_game.screen
         # Loading the image for alien
-        self.image = pygame.image.load('images/alien.bmp')
+        self.image = pygame.image.load('images/alien ship.png')
         self.rect = self.image.get_rect() # creating the image rect.
         
         # placing the rect object on top of the screen.
