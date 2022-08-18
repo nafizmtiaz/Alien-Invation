@@ -87,7 +87,31 @@ class AlienInvader:
              
     def _alien_armies(self):
         alien = Aliens(self) # making an alien!
+        alien_width, alien_height= alien.rect.size
+        available_spaces_x = self.settings.screen_width - (1 *
+            alien_width)
+        number_aliens_x = available_spaces_x // (1 * alien_width)
+        # Creating the collumns of object
+        ship_height = self.ship.rect.height
+        empty_spaces_y = self.settings.screen_height - (2 * alien_height) - (
+            ship_height)
+        Alien_raws = empty_spaces_y // ( 2 * alien_height)
+        for alien_raws in range(Alien_raws):
+         for alien_number in range(number_aliens_x):
+            self._raws_of_aliens_(alien_number, alien_raws)
+           
+      # creating the raws of objects      
+    def _raws_of_aliens_(self,alien_number, alien_raws):
+        alien = Aliens(self)
+        alien_width, alien_height = alien.rect.size
+        alien_x = alien_width + 3 * alien_width * alien_number
+        alien.rect.x = alien_x
+        alien.rect.y = alien_height + 2 * alien.rect.height * alien_raws
         self.aliens.add(alien)
+        
+            
+    
+        
              
     def _fire_bullet(self):
         # creating bullets & adding it to the group.

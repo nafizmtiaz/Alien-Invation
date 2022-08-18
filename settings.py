@@ -12,4 +12,4 @@ class Settings:
         self.bullet_height = 5
         self.bullet_width = 5
         self.bullet_color = (20, 30, 40)
-        self.limiting_bullets = 2 # the limit in which player can shoot.
+        self.limiting_bullets = 3 # the limit in which player can shoot.
